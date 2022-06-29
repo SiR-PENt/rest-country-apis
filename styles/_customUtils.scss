@@ -1,0 +1,22 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/utilities";
+
+ $utilities:(
+    "color": ( property: color, class: text, values: map-merge(
+        $theme-colors,
+        (
+          // "white": $white,
+          // "body": $body-color,
+          // "muted": $text-muted,
+          // "black-50": rgba($black, .5),
+          // "white-50": rgba($white, .5),
+          // "reset": inherit,
+          "dark-blue":hsl(209, 23%, 22%)
+        )
+      )
+    )
+ );
+
+
+@import 'bootstrap';
