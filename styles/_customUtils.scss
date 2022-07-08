@@ -6,13 +6,17 @@
     "color": ( property: color, class: text, values: map-merge(
         $theme-colors,
         (
-          // "white": $white,
-          // "body": $body-color,
-          // "muted": $text-muted,
-          // "black-50": rgba($black, .5),
-          // "white-50": rgba($white, .5),
-          // "reset": inherit,
-          "dark-blue":hsl(209, 23%, 22%)
+          "dark-blue":hsl(209, 23%, 22%), "dark-grey":  hsl(0, 0%, 52%),)
+      )
+    )
+ );
+ 
+ 
+ $utilities:(
+    "start": ( property: left, class: start, values: map-merge(
+        $position-values,
+        (
+          "20px":20px,
         )
       )
     )
