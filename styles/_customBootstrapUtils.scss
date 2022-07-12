@@ -8,7 +8,7 @@
 @import '../node_modules/bootstrap/scss/utilities';
 
 // custom utilities
-$custom-start: ( "start": ( property: left, class: start, values: map-merge( $position-values, ("30px":30px))));
+$custom-start: ("start": ( property: left, class: start, values: map-merge( $position-values, ("30px":30px))));
 $custom-text-colors: ("color": ( property: color, class: text, values: map-merge( $theme-colors, ("dark-grey" : hsl(0, 0%, 52%), "dark-blue": hsl(200, 15%, 8%)))));
 $custom-margins : ("margin-top": ( responsive: true,property: margin-top, class: mt,values: map-merge($spacers, ("6": 5rem))));
 $custom-background-colors: ("background-color": (property: background-color, class: bg, values: map-merge($theme-colors, ("body-light":hsl(0, 0%, 98%)))));
@@ -18,5 +18,6 @@ $utilities: map-merge($utilities, $custom-start );
 $utilities: map-merge($utilities, $custom-text-colors );
 $utilities: map-merge($utilities, $custom-margins );
 $utilities: map-merge($utilities, $custom-background-colors );
+
 
 @import '../node_modules/bootstrap/scss/bootstrap';

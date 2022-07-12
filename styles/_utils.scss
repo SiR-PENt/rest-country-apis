@@ -1,3 +1,27 @@
 .h-70px {
   height: 70px;
 }
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+.btn {
+	box-shadow: 0 10px 10px rgb(79 91 100 / 10%) !important;
+}
+
+
+input {
+  box-shadow: 0 10px 10px rgb(79 91 100 / 10%) !important;
+  color: hsl(0, 0%, 52%) !important;
+  &::placeholder {
+  color:hsl(0, 0%, 52%) !important;
+  }
+  &:focus {
+    outline: none !important;
+  }
+}
+.filter {
+  position: sticky !important;
+  top:0;
+}

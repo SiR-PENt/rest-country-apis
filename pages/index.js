@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Dropdown from 'react-bootstrap/Dropdown'
 import {AiOutlineSearch} from 'react-icons/ai'
 import { useState } from 'react'
 import axios from 'axios'
@@ -25,7 +26,7 @@ export default function Home({data}) {
             value={value}
             onChange={(e) => setValue(e.target.value)}
             aria-describedby=""
-            className="shadow ps-5"
+            className="shadow-none ps-5"
             placeholder="Search for a country"
           />
 
@@ -33,40 +34,35 @@ export default function Home({data}) {
         </Col>
 
         <Col xs={12}>
-          <div className="dropdown">
-            <button
-              class="btn btn-light shadow dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
+          <Dropdown>
+            <Dropdown.Toggle variant="" id="dropdown-basic">
               Filter by Region
-            </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li className="dropdown-item">Africa</li>
-              <li className="dropdown-item">America</li>
-              <li className="dropdown-item">Asia</li>
-              <li className="dropdown-item">Europe</li>
-              <li className="dropdown-item">Oceania</li>
-            </ul>
-          </div>
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item>Africa</Dropdown.Item>
+              <Dropdown.Item>America</Dropdown.Item>
+              <Dropdown.Item>Asia</Dropdown.Item>
+              <Dropdown.Item>Europe</Dropdown.Item>
+              <Dropdown.Item>Oceania</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </Col>
       </Row>
 
-      <div className="mt-3">
+      <Row className="mt-3 ">
         {countries.map((country) => {
           const id = uuidv4();
           let { flags, name, population, region, capital } = country;
           const { common } = name;
 
           return (
-            <Col className="border" key={id}>
+            <Col xs={12} md={3} key={id}>
               <div>
                 <img src={flags.png} width="100%" height="100%" />
               </div>
               <div>
-                <p>{common}</p>
+                <p className='text-dark-blue fw-bold'>{common}</p>
                 <p>
                   Population: <span>{population}</span>
                 </p>
@@ -80,7 +76,7 @@ export default function Home({data}) {
             </Col>
           );
         })}
-      </div>
+      </Row>
     </Container>
   );
 }
