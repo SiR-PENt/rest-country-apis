@@ -6,37 +6,48 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import {AiOutlineSearch} from 'react-icons/ai'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
 export default function Home({data}) {
 
+   const newData = axios.get(
+      `https://restcountries.com/v3.1/name/guam?fullText=true`
+    );
+
+console.log(newData)
   const [countries, setCountries] = useState(data);
+  const [value, setValue] = useState('');
   
   let regions = new Set(data.map(country => country.region))
-  regions = [...regions].sort();
-  const [value, setValue] = useState('');
+  regions = [ ...regions].sort();
+  regions = ['All', ...regions]
+  
+  useEffect(() => {
+    
+    
+  }, [value])
 
   return (
-    <Container fluid className="mt-6 bg-body-light">
+    <Container fluid className="mt-6">
       <Header />
-      <Row>
+      <Row className=''>
         <Col xs={12} md={4} className="position-relative mb-3">
           <Form.Control
             type="text"
             value={value}
             onChange={(e) => setValue(e.target.value)}
             aria-describedby=""
-            className="shadow-none ps-5"
+            className="input-field ps-5"
             placeholder="Search for a country"
           />
 
           <AiOutlineSearch className="text-dark-grey position-absolute top-50 start-30px translate-middle fs-4" />
         </Col>
 
-        <Col xs={12}>
-         <Filter regions={regions}/>
+        <Col xs={12} md={{span:4, offset:4}} className='d-flex justify-content-md-end'>
+         <Filter regions={regions} controlCountries={{data, setCountries}}/>
         </Col>
       </Row>
       <Countries countries={countries}/>
