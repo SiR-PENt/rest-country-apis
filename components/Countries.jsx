@@ -2,7 +2,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/router";
-
+import styles from 'styles/index.module.scss';
 
 export default function Countries({countries}) {
   const router = useRouter();
@@ -23,8 +23,8 @@ export default function Countries({countries}) {
         return (
           
           <Col xs={12} md={3} key={id}>
-            <div onClick={() => showDetailsHandler(common)} className="country-container shadow-sm">
-              <div className="img-container">
+            <div onClick={() => showDetailsHandler(common)} className={`${styles.countryContainer} shadow-sm`}>
+              <div className={`${styles.imgContainer}`}>
                 <img src={flags.png} alt="" width="100%" height="100%" />
               </div>
 

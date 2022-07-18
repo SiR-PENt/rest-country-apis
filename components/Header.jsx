@@ -1,6 +1,7 @@
 import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 import Container from "react-bootstrap/Container";
+import styles from 'styles/index.module.scss'
 import {BsMoon} from 'react-icons/bs';
 //import Stack from 'react-bootstrap/Stack'
 
@@ -8,7 +9,7 @@ export default function Header() {
 
   return (
       
-      <Row className='px-3 h-70px align-content-center fixed-top bg-white'>
+      <Row className={`${styles.h70px} px-3 align-content-center fixed-top bg-white`}>
         <Col >
           <p className="text-dark-blue fw-bold fs-5">Where in the world</p>
         </Col>

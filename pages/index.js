@@ -8,15 +8,10 @@ import Col from 'react-bootstrap/Col'
 import {AiOutlineSearch} from 'react-icons/ai'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import styles from 'styles/index.module.scss'
 
 export default function Home({data}) {
 
-   const newData = axios.get(
-      `https://restcountries.com/v3.1/name/guam?fullText=true`
-    );
-
-console.log(newData)
   const [countries, setCountries] = useState(data);
   const [value, setValue] = useState('');
   
@@ -39,7 +34,7 @@ console.log(newData)
             value={value}
             onChange={(e) => setValue(e.target.value)}
             aria-describedby=""
-            className="input-field ps-5"
+            className={`${styles.inputField} ps-5`}
             placeholder="Search for a country"
           />
 

@@ -1,5 +1,6 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import {v4 as uuidv4} from 'uuid';
+import styles from 'styles/index.module.scss'
 
 export default function Filter({regions, controlCountries}) {
 
@@ -16,7 +17,7 @@ export default function Filter({regions, controlCountries}) {
   
   return (
     <Dropdown>
-      <Dropdown.Toggle className="filter" variant="" id="dropdown-basic">
+      <Dropdown.Toggle className={`${styles.filter}`} variant="" id="dropdown-basic">
         Filter by Region
       </Dropdown.Toggle>
 

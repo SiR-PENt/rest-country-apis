@@ -1,11 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300&display=swap');
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: hsl(0, 0%, 98%);
-}
-
-.h-70px {
+.h70px {
   height: 70px;
 }
 
@@ -16,9 +10,11 @@ body {
 .btn {
 	box-shadow: 0 10px 10px rgb(79 91 100 / 10%) !important;
 }
+.cursorPointer {
+  cursor: pointer;
+}
 
-
-.input-field {
+.inputField {
   box-shadow: 0 10px 10px rgb(79 91 100 / 10%) !important;
   color: hsl(0, 0%, 52%) !important;
   height:50px;
@@ -30,19 +26,23 @@ body {
     border: hsl(209, 23%, 22%) !important;
   }
 }
+
 .filter {
   position: sticky !important;
   top:0;
 }
-.country-container { 
+.countryContainer { 
   height: 300px;
 }
-.img-container {
-   height:40%;
+.imgContainer {
+  height:40%;
   object-fit: cover;
   width:100%;
 }
 .filter {
   width:200px;
   height:50px;
+}
+.navBack {
+  width: 120px;
 }
