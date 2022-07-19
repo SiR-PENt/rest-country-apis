@@ -16,12 +16,16 @@ export default function Filter({regions, controlCountries}) {
    }
   
   return (
-    <Dropdown>
-      <Dropdown.Toggle className={`${styles.filter}`} variant="" id="dropdown-basic">
+    <Dropdown className={`${styles.filter}`}>
+      <Dropdown.Toggle
+        className={`${styles.filter} shadow-sm`}
+        variant=""
+        id="dropdown-basic"
+      >
         Filter by Region
       </Dropdown.Toggle>
 
-      <Dropdown.Menu>
+      <Dropdown.Menu className={`${styles.dropdownMenu} `}>
         {regions.map((region) => {
           const id = uuidv4();
           return (

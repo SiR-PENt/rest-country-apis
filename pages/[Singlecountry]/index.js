@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Header from "components/Header";
 import styles from 'styles/index.module.scss'
+import Link from "next/link";
+
 
 export default function SingleCountry({data}) {
 
@@ -18,45 +20,68 @@ export default function SingleCountry({data}) {
    languages =  Object.values(languages)
 
     return (
-        
-      <Container fluid className="mt-6">
+      <Container fluid className="mt-6 px-5">
         <Header />
 
         <div
-          className={`${styles.navBack} d-flex align-items-center shadow px-2 py-2`}
+          className={`${styles.navBack} ${styles.cursorPointer} rounded d-flex align-items-center shadow-sm px-2 py-2`}
         >
           <BiArrowBack className="fs-4" />
-          <p className="my-auto fs-4 ms-2">Back</p>
+          <Link href="/" passHref>
+            <p className="my-auto fs-4 ms-2">Back</p>
+          </Link>
         </div>
 
-        <Row>
-          <Col xs={12}>
-            <img src={flags.png} alt="" />
+        <Row className="bg-white mt-5">
+          <Col xs={12} md={6} className="">
+            <img src={flags.png} className={`${styles.img}`} width="100%" height="100%" alt="" />
           </Col>
 
           <Col>
             {/* row inside column */}
             <Row>
               {/* first column inside of the row */}
-              <Col  xs={12}>
-                <p>
-                  {name.common}
+                <p className="customFs text-dark-blue fw-bold">{name.common}</p>
+              <Col xs={12} md={6} className="descCol1">
+                
+
+                <p className="text-dark-blue fs-7 fw-bold">
+                  Native Name:{" "}
+                  <span className="fs-6 text-light-blue">{nativeName}</span>
                 </p>
-                <p>
-                    Native Name: <span>{nativeName}</span>
+
+                <p className="text-dark-blue fs-7 fw-bold">
+                  Population:{" "}
+                  <span className="fs-6 text-light-blue">{population}</span>
                 </p>
-                <p>Population: <span>{population}</span></p>
-                <p>Region: <span>{region}</span></p>
-                <p>Sub Region: <span>{subregion}</span></p>
-                <p>Capital: <span>{capital ? capital[0] : 'No Capital'}</span></p>
+
+                <p className="text-dark-blue fs-7 fw-bold">
+                  Region: <span className="fs-6 text-light-blue">{region}</span>
+                </p>
+                <p className="text-dark-blue fs-7 fw-bold">
+                  Sub Region:{" "}
+                  <span className="fs-6 text-light-blue">{subregion}</span>
+                </p>
+                <p className="text-dark-blue fs-7 fw-bold">
+                  Capital:{" "}
+                  <span className="fs-6 text-light-blue">
+                    {capital ? capital[0] : "No Capital"}
+                  </span>
+                </p>
               </Col>
 
-              <Col>
-              <p>Top Level Domain: <span>{tld[0]}</span></p>
-              <p>Currencies: {currencies}</p>
-              <p>Languages: {
-                languages.map(language => language)
-                 }</p>
+              <Col md={6} className='descCol2'>
+                <p className="text-dark-blue fs-7 fw-bold">
+                  Top Level Domain:{" "}
+                  <span className="fs-6 text-light-blue">{tld[0]}</span>
+                </p>
+                <p className="text-dark-blue fs-7 fw-bold">
+                  Currencies: <span className="fs-6 text-light-blue">{currencies}</span>
+                </p>
+                <p className="text-dark-blue fs-7 fw-bold">
+                  Languages:{" "}
+                  <span className="fs-6 text-light-blue">{languages.map((language) => language)}</span>
+                </p>
               </Col>
             </Row>
           </Col>

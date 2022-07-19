@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
       
-      <Row className={`${styles.h70px} px-3 align-content-center fixed-top bg-white`}>
+      <Row className={`${styles.h70px} px-3 align-content-center fixed-top bg-white shadow-sm`}>
         <Col >
           <p className="text-dark-blue fw-bold fs-5">Where in the world</p>
         </Col>

@@ -4,18 +4,20 @@
 }
 
 .btn:focus {
-  outline: none;
-  box-shadow: none;
+  outline: none !important;
+  box-shadow: none !important;
 }
+
 .btn {
 	box-shadow: 0 10px 10px rgb(79 91 100 / 10%) !important;
 }
+
 .cursorPointer {
   cursor: pointer;
 }
 
 .inputField {
-  box-shadow: 0 10px 10px rgb(79 91 100 / 10%) !important;
+  // box-shadow: 0 2px 8px rgb(79 91 100 / 10%) !important;
   color: hsl(0, 0%, 52%) !important;
   height:50px;
   border: none;
@@ -27,22 +29,30 @@
   }
 }
 
-.filter {
-  position: sticky !important;
-  top:0;
-}
 .countryContainer { 
   height: 300px;
+  cursor:pointer;
 }
+
 .imgContainer {
   height:40%;
   object-fit: cover;
   width:100%;
 }
+
 .filter {
   width:200px;
   height:50px;
 }
+
 .navBack {
   width: 120px;
+  
+}
+
+.dropdownMenu {
+  width: 200px;
+}
+.img {
+  object-fit: cover;
 }

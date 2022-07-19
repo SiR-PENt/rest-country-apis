@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'styles/global.css'
 import 'styles/Main.scss'
 import Head from "next/head";
 import { useEffect } from "react";

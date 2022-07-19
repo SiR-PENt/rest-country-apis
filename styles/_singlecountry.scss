@@ -1,0 +1,13 @@
+@include media-md {
+    .customFs {
+        font-size: 30px;
+        padding:30px 0px 0px 30px !important;
+    }
+    .descCol1, .descCol2 {
+        padding: 10px 0px 0px 30px !important;
+        // border:1px solid;
+    }
+    // .descCol2 {
+    //    padding: 98px 0px 0px 30px !important; 
+    // }
+}

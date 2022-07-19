@@ -34,7 +34,7 @@ export default function Home({data}) {
             value={value}
             onChange={(e) => setValue(e.target.value)}
             aria-describedby=""
-            className={`${styles.inputField} ps-5`}
+            className={`${styles.inputField} ps-5 shadow-sm`}
             placeholder="Search for a country"
           />
 
