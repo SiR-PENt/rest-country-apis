@@ -11,7 +11,7 @@ import axios from 'axios'
 import styles from 'styles/index.module.scss'
 
 export default function Home({data}) {
-
+  
   const [countries, setCountries] = useState(data);
   const [value, setValue] = useState('');
   
@@ -25,7 +25,7 @@ export default function Home({data}) {
   }, [value])
 
   return (
-    <Container fluid className="mt-6">
+    <Container fluid className="mt-6 pb-3">
       <Header />
       <Row className=''>
         <Col xs={12} md={4} className="position-relative mb-3">

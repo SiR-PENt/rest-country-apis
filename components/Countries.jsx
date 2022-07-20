@@ -17,15 +17,15 @@ export default function Countries({countries}) {
     <Row className="mt-4 px-4 g-4">
       {countries.map((country) => {
         const id = uuidv4();
-        let { flags, name, population, region, capital } = country;
-        const { common } = name;
+        let { flags, cca3, name, population, region, capital } = country;
+        let {common} = name;
 
         return (
           
           <Col xs={12} md={3} key={id}>
-            <div onClick={() => showDetailsHandler(common)} className={`${styles.countryContainer} shadow-sm`}>
+            <div onClick={() => showDetailsHandler(cca3)} className={`${styles.countryContainer} rounded shadow-sm`}>
               <div className={`${styles.imgContainer}`}>
-                <img src={flags.png} alt="" width="100%" height="100%" />
+                <img src={flags.png} alt="" width="100%" height="100%" className='rounded'/>
               </div>
 
               <div className="px-3 mt-3">
