@@ -22,10 +22,10 @@ export default function Countries({countries}) {
 
         return (
           
-          <Col xs={12} md={3} key={id}>
+          <Col xs={{span:10, offset:1}} md={{span:3, offset:0}} key={id}>
             <div onClick={() => showDetailsHandler(cca3)} className={`${styles.countryContainer} rounded shadow-sm`}>
               <div className={`${styles.imgContainer}`}>
-                <img src={flags.png} alt="" width="100%" height="100%" className='rounded'/>
+                <img src={flags.png} alt="" width="100%" height="100%" className={`${styles.img} rounded`}/>
               </div>
 
               <div className="px-3 mt-3">

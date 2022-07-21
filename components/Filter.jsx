@@ -25,7 +25,7 @@ export default function Filter({regions, controlCountries}) {
         Filter by Region
       </Dropdown.Toggle>
 
-      <Dropdown.Menu className={`${styles.dropdownMenu} `}>
+      <Dropdown.Menu className={`${styles.dropdownMenu} shadow-sm`}>
         {regions.map((region) => {
           const id = uuidv4();
           return (

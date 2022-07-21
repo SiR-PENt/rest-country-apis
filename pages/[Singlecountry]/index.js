@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Header from "components/Header";
 import styles from 'styles/index.module.scss'
+import styleTwo from 'styles/singlecountry.module.scss'
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -37,22 +38,24 @@ export default function SingleCountry({data}) {
 
         <Row className="bg-white mt-5 py-2 rounded shadow-sm">
           <Col xs={12} md={6} className="">
+            <div className={`${styleTwo.imgContainer}`}>
             <img
               src={flags.png}
               className={`${styles.img} rounded`}
               width="100%"
               height="100%"
               alt=""
-            />
+              />
+            </div>
           </Col>
 
-          <Col className="col2">
+          <Col className={`${styleTwo.col2} pt-5`}>
             {/* row inside column */}
             <Row>
               {/* first column inside of the row */}
-              <p className="customFs text-dark-blue fw-bold">{name.common}</p>
+              <p className={`${styleTwo.customFs} text-dark-blue fw-bold`}>{name.common}</p>
 
-              <Col xs={12} md={6} className="descCol1">
+              <Col xs={12} md={6} className={`${styleTwo.descCol1}`}>
                 <p className="text-dark-blue fs-7 fw-bold">
                   Native Name:{" "}
                   <span className="fs-6 text-light-blue">{nativeName}</span>
@@ -78,7 +81,7 @@ export default function SingleCountry({data}) {
                 </p>
               </Col>
 
-              <Col md={6} className="descCol2">
+              <Col md={6} className={`${styleTwo.descCol2} pt-5`}>
                 <p className="text-dark-blue fs-7 fw-bold">
                   Top Level Domain:{" "}
                   <span className="fs-6 text-light-blue">{tld[0]}</span>
@@ -88,10 +91,17 @@ export default function SingleCountry({data}) {
                   <span className="fs-6 text-light-blue">{currencies}</span>
                 </p>
                 <p className="text-dark-blue fs-7 fw-bold">
-                  Languages:{" "}
-                  <span className="fs-6 text-light-blue">
-                    {languages.map((language) => language)}
+                  Languages:{" "}         
+                   <span className="fs-6 text-light-blue">
+                    {/* if length of language is less than one return just the language, 
+                    else return all languages separated with commas */}
+                    {
+                    languages.length > 0 
+                    ? languages.join(', ') 
+                    : languages.join('')
+                    }
                   </span>
+                
                 </p>
               </Col>
 

@@ -6,22 +6,47 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import {AiOutlineSearch} from 'react-icons/ai'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import styles from 'styles/index.module.scss'
 
 export default function Home({data}) {
-  
+ // check if component is mounted to avoid calling function inside useEffect when page mounts
+  const isMounted = useRef(false);
+
   const [countries, setCountries] = useState(data);
   const [value, setValue] = useState('');
-  
   let regions = new Set(data.map(country => country.region))
   regions = [ ...regions].sort();
   regions = ['All', ...regions]
   
   useEffect(() => {
-    
-    
+ // when page mounts isMounted is false, hence function will not be called
+
+  if(isMounted) {
+    if(value) {
+      const searchCountry = () => {
+         axios.get(`https://restcountries.com/v3.1/name/${value}`)
+         .then(res => {
+            const { data } = res;
+            setCountries(data)
+         })
+         .catch(err => {
+           //**TODO: will customize error msg on condition of if country exists
+           console.log(err)
+         });   
+        }
+        searchCountry() 
+    }
+    else {
+      setCountries(data)
+    }
+  }
+  //when page mounts for the first time, set isMounted to true. Hence, we avoid calling the function above
+  else {
+    isMounted.current = true;
+  }
+
   }, [value])
 
   return (
