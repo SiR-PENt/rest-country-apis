@@ -9,6 +9,8 @@ import {AiOutlineSearch} from 'react-icons/ai'
 import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import styles from 'styles/index.module.scss'
+import ScrollToTop from 'react-scroll-to-top'
+import { AiOutlineToTop } from 'react-icons/ai'
 
 export default function Home({data}) {
  // check if component is mounted to avoid calling function inside useEffect when page mounts
@@ -51,6 +53,7 @@ export default function Home({data}) {
 
   return (
     <Container fluid className="mt-6 pb-3">
+      <ScrollToTop smooth style={{padding: "4px"}} component={<AiOutlineToTop className='text-dark-blue fs-2'/>}/>
       <Header />
       <Row className=''>
         <Col xs={12} md={4} className="position-relative mb-3">
