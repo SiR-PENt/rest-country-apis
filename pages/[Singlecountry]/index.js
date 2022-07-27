@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BiArrowBack } from "react-icons/Bi";
+import { BiArrowBack } from "react-icons/bi";
 import Container from "react-bootstrap/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
