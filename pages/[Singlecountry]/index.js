@@ -14,14 +14,20 @@ import { motion } from "framer-motion";
 export default function SingleCountry({data}) {
 
    const router = useRouter();
-
+   
    let { flags, borders, name, population, region, subregion, capital, tld, currencies, languages } = data[0];
    let {nativeName} = name;
-   nativeName = Object.entries(nativeName);
-   nativeName = nativeName[0][1].official;
-   currencies = Object.entries(currencies);
-   currencies = currencies[0][1].name;
-   languages =  Object.values(languages)
+
+   if(nativeName) {
+     nativeName = Object.entries(nativeName);
+     nativeName = nativeName[0][1].official;
+   }
+
+   if (currencies) {
+     currencies = Object.entries(currencies);
+     currencies = currencies[0][1].name;
+   }
+   if(languages) languages =  Object.values(languages)
 
     return (
       <Container fluid className="mt-6 px-5 pb-3">
@@ -78,7 +84,7 @@ export default function SingleCountry({data}) {
                   className="text-dark-blue fs-7 fw-bold"
                 >
                   Native Name:{" "}
-                  <span className="fs-6 text-light-blue">{nativeName}</span>
+                  <span className="fs-6 text-light-blue">{nativeName? nativeName : "No Native Name"}</span>
                 </motion.p>
 
                 <motion.p
@@ -107,7 +113,7 @@ export default function SingleCountry({data}) {
                   className="text-dark-blue fs-7 fw-bold"
                 >
                   Sub Region:{" "}
-                  <span className="fs-6 text-light-blue">{subregion}</span>
+                  <span className="fs-6 text-light-blue">{subregion ? subregion : "No Sub Region"}</span>
                 </motion.p>
 
                 <motion.p
@@ -131,7 +137,7 @@ export default function SingleCountry({data}) {
                   className="text-dark-blue fs-7 fw-bold"
                 >
                   Top Level Domain:{" "}
-                  <span className="fs-6 text-light-blue">{tld[0]}</span>
+                  <span className="fs-6 text-light-blue">{tld?.[0]}</span>
                 </motion.p>
 
                 <motion.p
@@ -141,7 +147,7 @@ export default function SingleCountry({data}) {
                   className="text-dark-blue fs-7 fw-bold"
                 >
                   Currencies:{" "}
-                  <span className="fs-6 text-light-blue">{currencies}</span>
+                  <span className="fs-6 text-light-blue">{currencies ? currencies : "No Currencies"}</span>
                 </motion.p>
 
                 <motion.p
@@ -152,11 +158,17 @@ export default function SingleCountry({data}) {
                 >
                   Languages:{" "}
                   <span className="fs-6 text-light-blue">
+
+                    {/* if languages is true and languages is an array, since it isn't for every country, then check if languages array length is greater than zero, if so, loop over each language and return each, if not greater than zero, then just return the language. If language is no true, then return no languages*/}
+
+                    {((languages && languages.isArray) ? (
                     {/* if length of language is less than one return just the language, 
                     else return all languages separated with commas */}
-                    {languages.length > 0
+                      (languages.length > 0)
                       ? languages.join(", ")
-                      : languages.join("")}
+                      : languages.join(""))
+                       : "No Languages")
+                    }
                   </span>
                 </motion.p>
               </Col>
@@ -175,7 +187,7 @@ export default function SingleCountry({data}) {
                       
                       ( borders.map((border, index) => {
                       const id = uuidv4();
-                       let delayValue = 4.4; // last delay value wad 4.4
+                       let delayValue = 4.4; // last delay value was 4.4
                        index = index + 1; // we don't want to have index starting from 0 
                        delayValue = delayValue + (0.3 * index); //since we are increasing by 0.3
 
@@ -213,6 +225,7 @@ export default function SingleCountry({data}) {
 
 export async function getStaticPaths () {
    const { data } = await axios.get(`https://restcountries.com/v3.1/all`);
+   
 //    const countries = data.map(country => country.name.common)  
    return {
     fallback: false,
@@ -226,8 +239,7 @@ export async function getStaticProps(context) {
     const {data} = await axios.get(
       `https://restcountries.com/v3.1/alpha/${country}`
     );
-console.log(data)
-
+    
  return {
     props: {
         data

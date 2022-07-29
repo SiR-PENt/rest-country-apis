@@ -40,7 +40,9 @@ export default function Countries({countries}) {
             >
               <motion.div
                 initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
+                // animate={{ opacity: 1 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
                 transition={{ ease: "easeOut", duration: 0.8, delay: 0.5 }}
                 className={`${styles.imgContainer}`}
               >
