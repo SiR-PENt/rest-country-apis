@@ -1,9 +1,10 @@
 @import './responsive';
 @import './customBootstrapUtils';
+// @import './utils';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300&display=swap');
 
 body {
   font-family: 'Inter', sans-serif;
   background: hsl(0, 0%, 98%);
 }
-// @import './utils';
-

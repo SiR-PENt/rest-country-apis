@@ -11,8 +11,6 @@ import axios from 'axios'
 import styles from 'styles/index.module.scss'
 import ScrollToTop from 'react-scroll-to-top'
 import { AiOutlineToTop } from 'react-icons/ai'
-import { motion } from 'framer-motion'
-
 
 export default function Home({data}) {
  // check if component is mounted to avoid calling function inside useEffect when page mounts
@@ -55,41 +53,27 @@ export default function Home({data}) {
 
   return (
     <Container fluid className="mt-6 pb-3">
-      <ScrollToTop
-        smooth
-        style={{ padding: "4px" }}
-        component={<AiOutlineToTop className="text-dark-blue fs-2" />}
-      />
+      <ScrollToTop smooth style={{padding: "4px"}} component={<AiOutlineToTop className='text-dark-blue fs-2'/>}/>
       <Header />
-      <Row className="">
+      <Row className=''>
         <Col xs={12} md={4} className="position-relative mb-3">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.1 }}
-          >
-            <Form.Control
-              type="text"
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              aria-describedby=""
-              className={`${styles.inputField} ps-5 shadow-sm`}
-              placeholder="Search for a country"
-            />
+          <Form.Control
+            type="text"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            aria-describedby=""
+            className={`${styles.inputField} ps-5 shadow-sm`}
+            placeholder="Search for a country"
+          />
 
-            <AiOutlineSearch className="text-dark-grey position-absolute top-50 start-30px translate-middle fs-4" />
-          </motion.div>
+          <AiOutlineSearch className="text-dark-grey position-absolute top-50 start-30px translate-middle fs-4" />
         </Col>
 
-        <Col
-          xs={12}
-          md={{ span: 4, offset: 4 }}
-          className="d-flex justify-content-md-end"
-        >
-          <Filter regions={regions} controlCountries={{ data, setCountries }} />
+        <Col xs={12} md={{span:4, offset:4}} className='d-flex justify-content-md-end'>
+         <Filter regions={regions} controlCountries={{data, setCountries}}/>
         </Col>
       </Row>
-      <Countries countries={countries} />
+      <Countries countries={countries}/>
     </Container>
   );
 }
