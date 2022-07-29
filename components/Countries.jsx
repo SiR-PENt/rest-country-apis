@@ -30,7 +30,7 @@ export default function Countries({countries}) {
           >
             <motion.div
               whileHover={{ scale: 1.1 }}
-              // whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 1.3 }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
