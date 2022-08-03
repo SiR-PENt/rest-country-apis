@@ -47,10 +47,10 @@ export default function Filter({regions, controlCountries}) {
                   {region}
                 </Dropdown.Item>
               </motion.div>
-            );
+            )
           })}
         </Dropdown.Menu>
       </Dropdown>
     </motion.div>
-  );
+  )
 }

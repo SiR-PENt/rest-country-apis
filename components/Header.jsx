@@ -1,17 +1,17 @@
 import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
-import Container from "react-bootstrap/Container";
 import styles from 'styles/index.module.scss'
-import {BsMoon} from 'react-icons/bs';
+import { BsMoon } from "react-icons/bs";
+import { MdOutlineLightMode } from 'react-icons/md'
 import { motion } from "framer-motion";
 import { useEffect, useState } from 'react';
-//import Stack from 'react-bootstrap/Stack'
+
 
 export default function Header() {
 
-   const [darkTheme, setDarkTheme] = useState(false);
+   const [darkTheme, setDarkTheme] = useState(undefined);
 
-   const handleToggle = (e) => {
+   const handleToggle = () => {
      setDarkTheme(!darkTheme);
    }
 
@@ -57,9 +57,20 @@ export default function Header() {
           transition={{ duration: 0.5, delay:0.8 }}
           onClick={handleToggle}
           className="d-flex align-items-center mt-1"
-        >
-          <BsMoon className="fs-6 fw-normal ms-auto me-1" />
-          <p className="fs-6 my-auto fw-bold">Dark Mode</p>
+        > {
+          !darkTheme ? (
+             <>
+               <BsMoon className="fs-6 fw-normal ms-auto me-1" />
+               <p className="fs-6 my-auto fw-bold">Dark Mode</p>
+             </>
+          ) : (
+              <>
+                <MdOutlineLightMode className="fs-6 fw-normal ms-auto me-1" />
+                <p className="fs-6 my-auto fw-bold">Light Mode</p> 
+              </>
+          )
+        }
+
         </motion.div>
       </Col>
     </Row>
