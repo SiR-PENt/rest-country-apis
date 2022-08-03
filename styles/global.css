@@ -1,0 +1,69 @@
+:root {
+  
+  --color-elements: hsl(0, 0%, 98%);
+  --color-button: hsl(0, 0%, 98%);
+  --color-paragraph: hsl(200, 15%, 8%);
+  --color-input-text:hsl(0, 0%, 52%);
+  --color-background: hsl(0, 0%, 98%);
+  --color-key: hsl(200, 15%, 8%);
+  --color-value: hsl(209, 23%, 22%);
+}
+
+[data-theme='dark'] {
+  --color-elements:hsl(209, 23%, 22%);
+  
+  --color-paragraph: hsl(0, 0%, 100%);
+  --color-input-text:hsl(0, 0%, 100%);
+  --color-background: hsl(207, 26%, 17%);
+  --color-key: hsl(0, 0%, 100%);
+  --color-value: hsl(0, 0%, 100%);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-family: 'Inter', sans-serif;
+}
+.header {
+    background-color: var(--color-elements);
+    color: var(--color-paragraph);
+}
+.btn {
+    background-color: var(--color-elements);
+    color: var(--color-paragraph);
+}
+.search-icon {
+    color: var(--color-input-text);
+}
+.input {
+   background-color: var(--color-elements);
+}
+
+.input::placeholder {
+  color:var(--color-input-text);
+  }
+
+.input:focus {
+    background-color: var(--color-elements);
+}
+.country-container {
+    background-color: var(--color-elements);
+    color:var(--color-paragraph);
+}
+.country-key {
+   color: var(--color-key);
+}
+.country-value {
+   color: var(--color-value);
+}
+
+ /* Details page */
+
+.nav-back {
+    background-color: var(--color-elements);
+    color: var(--color-paragraph);
+}
+
+.img-container {
+    background-color: var(--color-elements);
+}

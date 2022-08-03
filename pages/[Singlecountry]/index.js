@@ -38,15 +38,15 @@ export default function SingleCountry({data}) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.1 }}
-            className={`${styles.navBack} ${styles.cursorPointer} rounded d-flex align-items-center shadow-sm px-2 py-2`}
+            className={`${styles.navBack} ${styles.cursorPointer} nav-back rounded d-flex align-items-center shadow-sm px-2 py-2`}
           >
             <BiArrowBack className="fs-4" />
             <p className="my-auto fs-4 ms-2">Back</p>
           </motion.div>
         </Link>
 
-        <Row className="bg-white mt-5 py-2 rounded shadow-sm">
-          <Col xs={12} md={6} className="">
+        <Row className="mt-5 py-2 rounded shadow-sm">
+          <Col xs={12} md={6} className="img-container rounded py-2">
             <motion.div
               initial={{ opacity: 0, y:-50 }}
               animate={{ opacity: 1, y:0 }}
@@ -71,7 +71,7 @@ export default function SingleCountry({data}) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1.7 }}
-                className={`${styleTwo.customFs} text-dark-blue fw-bold`}
+                className={`${styleTwo.customFs} country-key fw-bold`}
               >
                 {name.common}
               </motion.p>
@@ -81,49 +81,49 @@ export default function SingleCountry({data}) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 2.0 }}
-                  className="text-dark-blue fs-7 fw-bold"
+                  className="country-key fs-7 fw-bold"
                 >
                   Native Name:{" "}
-                  <span className="fs-6 text-light-blue">{nativeName? nativeName : "No Native Name"}</span>
+                  <span className="fs-6 country-value">{nativeName? nativeName : "No Native Name"}</span>
                 </motion.p>
 
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 2.3 }}
-                  className="text-dark-blue fs-7 fw-bold"
+                  className="country-key fs-7 fw-bold"
                 >
                   Population:{" "}
-                  <span className="fs-6 text-light-blue ">{population}</span>
+                  <span className="fs-6 country-value">{population}</span>
                 </motion.p>
 
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 2.6 }}
-                  className="text-dark-blue fs-7 fw-bold"
+                  className="country-key fs-7 fw-bold"
                 >
-                  Region: <span className="fs-6 text-light-blue">{region}</span>
+                  Region: <span className="fs-6 country-value">{region}</span>
                 </motion.p>
 
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 2.9 }}
-                  className="text-dark-blue fs-7 fw-bold"
+                  className="country-key fs-7 fw-bold"
                 >
                   Sub Region:{" "}
-                  <span className="fs-6 text-light-blue">{subregion ? subregion : "No Sub Region"}</span>
+                  <span className="fs-6 country-value">{subregion ? subregion : "No Sub Region"}</span>
                 </motion.p>
 
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 3.2 }}
-                  className="text-dark-blue fs-7 fw-bold"
+                  className="country-key fs-7 fw-bold"
                 >
                   Capital:{" "}
-                  <span className="fs-6 text-light-blue">
+                  <span className="fs-6 country-value">
                     {capital ? capital[0] : "No Capital"}
                   </span>
                 </motion.p>
@@ -134,30 +134,30 @@ export default function SingleCountry({data}) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 3.5 }}
-                  className="text-dark-blue fs-7 fw-bold"
+                  className="country-key fs-7 fw-bold"
                 >
                   Top Level Domain:{" "}
-                  <span className="fs-6 text-light-blue">{tld?.[0]}</span>
+                  <span className="fs-6 country-value">{tld?.[0]}</span>
                 </motion.p>
 
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 3.8 }}
-                  className="text-dark-blue fs-7 fw-bold"
+                  className="country-key fs-7 fw-bold"
                 >
                   Currencies:{" "}
-                  <span className="fs-6 text-light-blue">{currencies ? currencies : "No Currencies"}</span>
+                  <span className="fs-6 country-value">{currencies ? currencies : "No Currencies"}</span>
                 </motion.p>
 
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 4.1 }}
-                  className="text-dark-blue fs-7 fw-bold"
+                  className="country-key fs-7 fw-bold"
                 >
                   Languages:{" "}
-                  <span className="fs-6 text-light-blue">
+                  <span className="fs-6 country-value">
 
                     {/* if languages is true and languages is an array, since it isn't for every country, then check if languages array length is greater than zero, if so, loop over each language and return each, if not greater than zero, then just return the language. If language is no true, then return no languages*/}
 
@@ -180,7 +180,7 @@ export default function SingleCountry({data}) {
                   transition={{ duration: 0.5, delay: 4.4 }}
                   className={`${
                     borders && "d-flex flex-wrap align-items-center"
-                  } text-dark-blue fs-7 fw-bold`}
+                  } country-key fs-7 fw-bold`}
                 >
                   Border Countries:
                   { borders ? 
@@ -198,7 +198,7 @@ export default function SingleCountry({data}) {
                            transition={{ duration: 0.5, delay: `${delayValue}` }}
                            key={id}
                            onClick={() => router.push(`/${border}`)}
-                           className={`${styles.cursorPointer} inline-block rounded fs-6 text-light-blue border px-2 py-1 shadow-sm ms-1 my-1`}
+                           className={`${styles.cursorPointer} inline-block rounded fs-6 country-value border px-2 py-1 shadow-sm ms-1 my-1`}
                          >
                            {border}
                          </motion.span>

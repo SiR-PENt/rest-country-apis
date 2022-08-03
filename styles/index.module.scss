@@ -22,9 +22,6 @@
   color: hsl(0, 0%, 52%) !important;
   height:50px;
   border: none;
-  &::placeholder {
-  color:hsl(0, 0%, 52%) !important;
-  }
   &:focus {
     border: hsl(209, 23%, 22%) !important;
   }
@@ -53,6 +50,7 @@
 .dropdownMenu {
   width: 200px;
 }
+
 .img {
   object-fit: cover;
 }

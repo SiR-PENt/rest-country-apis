@@ -36,7 +36,7 @@ export default function Countries({countries}) {
               viewport={{ once: true }}
               transition={{ ease: "easeOut", duration: 0.3 }}
               onClick={() => showDetailsHandler(cca3)}
-              className={`${styles.countryContainer} rounded shadow-sm`}
+              className={`${styles.countryContainer} country-container rounded shadow-sm`}
             >
               <motion.div
                 initial={{ opacity: 0, y: -50 }}
@@ -61,7 +61,7 @@ export default function Countries({countries}) {
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
                   viewport={{ once: true }}
-                  className="text-dark-blue fw-bold"
+                  className="country-key fw-bold"
                 >
                   {common}
                 </motion.p>
@@ -70,29 +70,29 @@ export default function Countries({countries}) {
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.9 }}
                   viewport={{ once: true }}
-                  className="text-dark-blue fs-7 fw-bold"
+                  className="country-key fs-7 fw-bold"
                 >
                   Population:{" "}
-                  <span className="fs-6 text-light-blue">{population}</span>
+                  <span className="fs-6 country-value">{population}</span>
                 </motion.p>
                 <motion.p
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 1.1 }}
                   viewport={{ once: true }}
-                  className="text-dark-blue fs-7 fw-bold"
+                  className="country-key fs-7 fw-bold"
                 >
-                  Region: <span className="fs-6 text-light-blue">{region}</span>
+                  Region: <span className="fs-6 country-value">{region}</span>
                 </motion.p>
                 <motion.p
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 1.3 }}
                   viewport={{ once: true }}
-                  className="text-dark-blue fs-7 fw-bold"
+                  className="country-key fs-7 fw-bold"
                 >
                   Capital:{" "}
-                  <span className="fs-6 text-light-blue">
+                  <span className="fs-6 country-value">
                     {capital ? capital[0] : "No capital"}
                   </span>
                 </motion.p>

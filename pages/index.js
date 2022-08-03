@@ -73,11 +73,11 @@ export default function Home({data}) {
               value={value}
               onChange={(e) => setValue(e.target.value)}
               aria-describedby=""
-              className={`${styles.inputField} ps-5 shadow-sm`}
+              className={`${styles.inputField} input ps-5 shadow-sm`}
               placeholder="Search for a country"
             />
 
-            <AiOutlineSearch className="text-dark-grey position-absolute top-50 start-30px translate-middle fs-4" />
+            <AiOutlineSearch className="search-icon position-absolute top-50 start-30px translate-middle fs-4" />
           </motion.div>
         </Col>
 
