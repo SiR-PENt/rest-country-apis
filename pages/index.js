@@ -12,7 +12,7 @@ import styles from 'styles/index.module.scss'
 import ScrollToTop from 'react-scroll-to-top'
 import { AiOutlineToTop } from 'react-icons/ai'
 import { motion } from 'framer-motion'
-
+import PageTitle from 'components/common/PageTitle'
 
 export default function Home({data}) {
  // check if component is mounted to avoid calling function inside useEffect when page mounts
@@ -55,6 +55,7 @@ export default function Home({data}) {
 
   return (
     <Container fluid className="mt-6 pb-3">
+      <PageTitle title={"Explore Countries around the world"} />
       <ScrollToTop
         smooth
         style={{ padding: "4px" }}

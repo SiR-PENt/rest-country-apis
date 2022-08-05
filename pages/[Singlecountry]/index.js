@@ -12,6 +12,8 @@ import { motion } from "framer-motion";
 import DetailsOne from "components/singleCountry-components/DetailsOne";
 import DetailsTwo from "components/singleCountry-components/DetailsTwo";
 import BorderCountries from "components/singleCountry-components/BorderCountries";
+import PageTitle from "components/common/PageTitle";
+
 
 export default function SingleCountry({data}) {
 
@@ -33,6 +35,7 @@ export default function SingleCountry({data}) {
 
     return (
       <Container fluid className="mt-6 px-5 pb-3">
+        <PageTitle title={`${nativeName}`}/>
         <Header />
 
         <Link href="/" scroll={false} passHref>
