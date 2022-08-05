@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion';
 import { v4 as uuidv4 } from "uuid";
 import styles from "styles/index.module.scss";
+import { useRouter } from "next/router";
 
 export default function BorderCountries({borderCountries}) {
-
+    const router = useRouter();
     const { borders } = borderCountries;
 
     return (
 
-        
+
       <div className="pt-4">
         <motion.p
           initial={{ opacity: 0 }}
@@ -30,6 +31,7 @@ export default function BorderCountries({borderCountries}) {
                 <motion.span
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
+                  whileTap={{ scale: 1.3 }}
                   transition={{ duration: 0.5, delay: `${delayValue}` }}
                   key={id}
                   onClick={() => router.push(`/${border}`)}
