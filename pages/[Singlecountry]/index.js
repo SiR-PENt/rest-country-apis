@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import DetailsOne from "components/singleCountry-components/DetailsOne";
 import DetailsTwo from "components/singleCountry-components/DetailsTwo";
 import BorderCountries from "components/singleCountry-components/BorderCountries";
-import PageTitle from "components/common/PageTitle";
+import PageTitle from "components/Common/PageTitle";
 
 
 export default function SingleCountry({data}) {
