@@ -1,18 +1,17 @@
 import Row from "react-bootstrap/Row";
-import Col from 'react-bootstrap/Col';
-import styles from 'styles/index.module.scss'
+import Col from "react-bootstrap/Col";
+import styles from "styles/index.module.scss";
 import { BsMoon } from "react-icons/bs";
-import { MdOutlineLightMode } from 'react-icons/md'
+import { MdOutlineLightMode } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useGlobalContext } from "../AppProvider";
 
 export default function Header() {
+  const { setDarkTheme, darkTheme } = useGlobalContext();
 
-   const { setDarkTheme, darkTheme } = useGlobalContext();
-
-   const handleToggle = () => {
-     setDarkTheme(!darkTheme);
-   }
+  const handleToggle = () => {
+    setDarkTheme(!darkTheme);
+  };
 
   return (
     <Row
@@ -22,7 +21,7 @@ export default function Header() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay:0.5 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className=" fw-bold fs-5"
         >
           Where in the world
@@ -32,24 +31,23 @@ export default function Header() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay:0.8 }}
-          whileTap={{rotate: 270}}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          whileTap={{ rotate: 270 }}
           onClick={handleToggle}
           className={`${styles.cursorPointer} d-flex align-items-center mt-1`}
-        > {
-          !darkTheme ? (
-             <>
-               <BsMoon className="fs-6 fw-normal ms-auto me-1" />
-               <p className="fs-6 my-auto fw-bold">Dark Mode</p>
-             </>
+        >
+          {" "}
+          {!darkTheme ? (
+            <>
+              <BsMoon className="fs-6 fw-normal ms-auto me-1" />
+              <p className="fs-6 my-auto fw-bold">Dark Mode</p>
+            </>
           ) : (
-              <>
-                <MdOutlineLightMode className="fs-6 fw-normal ms-auto me-1" />
-                <p className="fs-6 my-auto fw-bold">Light Mode</p> 
-              </>
-          )
-        }
-
+            <>
+              <MdOutlineLightMode className="fs-6 fw-normal ms-auto me-1" />
+              <p className="fs-6 my-auto fw-bold">Light Mode</p>
+            </>
+          )}
         </motion.div>
       </Col>
     </Row>
