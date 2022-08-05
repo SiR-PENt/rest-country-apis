@@ -10,8 +10,7 @@
 }
 
 [data-theme='dark'] {
-  --color-elements:hsl(209, 23%, 22%);
-  
+  --color-elements:hsl(209, 23%, 22%); 
   --color-paragraph: hsl(0, 0%, 100%);
   --color-input-text:hsl(0, 0%, 100%);
   --color-background: hsl(207, 26%, 17%);
