@@ -67,3 +67,11 @@ body {
 .img-container {
     background-color: var(--color-elements);
 }
+
+.menu {
+  background-color: var(--color-elements);
+}
+
+.item {
+  color: var(--color-paragraph);
+}

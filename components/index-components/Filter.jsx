@@ -31,7 +31,7 @@ export default function Filter({regions, controlCountries}) {
           Filter by Region
         </Dropdown.Toggle>
 
-        <Dropdown.Menu className={`${styles.dropdownMenu} shadow-sm`}>
+        <Dropdown.Menu className={`${styles.dropdownMenu} menu shadow-sm`}>
           { regions.map((region, index) => {
             let delayValue = 0.1 //delay interval of 0.1
             delayValue = delayValue * (index + 1) // increase as index increase, no fuss
@@ -43,7 +43,9 @@ export default function Filter({regions, controlCountries}) {
                 transition={{ duration: 0.5, delay: `${delayValue}` }}
                 key={id}
               >
-                <Dropdown.Item onClick={() => filteredCountry(region)}>
+                <Dropdown.Item 
+                className='item'
+                onClick={() => filteredCountry(region)}>
                   {region}
                 </Dropdown.Item>
               </motion.div>

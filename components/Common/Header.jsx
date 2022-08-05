@@ -4,37 +4,15 @@ import styles from 'styles/index.module.scss'
 import { BsMoon } from "react-icons/bs";
 import { MdOutlineLightMode } from 'react-icons/md'
 import { motion } from "framer-motion";
-import { useEffect, useState } from 'react';
-
+import { useGlobalContext } from "../AppProvider";
 
 export default function Header() {
 
-   const [darkTheme, setDarkTheme] = useState(undefined);
+   const { setDarkTheme, darkTheme } = useGlobalContext();
 
    const handleToggle = () => {
      setDarkTheme(!darkTheme);
    }
-
-   useEffect(() => {
-    if(darkTheme !== undefined) {
-
-      if(darkTheme) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        window.localStorage.setItem('theme', 'dark');
-      }
-
-     else {
-      document.documentElement.removeAttribute('data-theme')
-       window.localStorage.setItem('theme', 'light')    
-      }
-    }
-   }, [darkTheme])
-
-   useEffect(() => {
-     const root = window.document.documentElement;
-     const initialColorValue = root.style.getPropertyValue('--initialColorMode')
-     setDarkTheme(initialColorValue === 'dark');
-   }, [])
 
   return (
     <Row
@@ -55,8 +33,9 @@ export default function Header() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay:0.8 }}
+          whileTap={{rotate: 270}}
           onClick={handleToggle}
-          className="d-flex align-items-center mt-1"
+          className={`${styles.cursorPointer} d-flex align-items-center mt-1`}
         > {
           !darkTheme ? (
              <>

@@ -26,7 +26,7 @@ class MyDocument extends Document {
 //btw don't understand shit here, don't ask me, I copied the code, XOXO
 
 
-// This function needs to be a String
+// This function needs to be a String fro dangerouslySetInnerHTML
 const themeInitializerScript = `(function() {
 	${setInitialColorMode.toString()}
 	setInitialColorMode();
